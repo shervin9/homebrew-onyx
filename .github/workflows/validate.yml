@@ -1,0 +1,29 @@
+name: Validate formula
+on:
+  push:
+    branches: [main]
+    paths: ['Formula/**']
+  pull_request:
+    paths: ['Formula/**']
+  repository_dispatch:
+    types: [onyx-formula-bumped]
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Audit formula
+        run: |
+          set -euo pipefail
+          tap_dir="$(brew --repo)/Library/Taps/shervin9/homebrew-onyx"
+          mkdir -p "$tap_dir"
+          cp -R . "$tap_dir/"
+          brew audit --strict --formula shervin9/onyx/onyx
+
+      - name: Install and smoke test
+        run: |
+          brew install --formula shervin9/onyx/onyx
+          onyx --version
