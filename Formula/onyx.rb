@@ -10,8 +10,7 @@ class Onyx < Formula
   on_macos do
     on_arm do
       url "https://github.com/shervin9/onyx/releases/download/v#{version}/onyx-macos-arm64"
-      # Replace with the real sha256 from onyx-sha256sums.txt at release time.
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      sha256 "17f93294f6d83246f9f49fec5e605cd1cfc42d181fe67470b452f199c2d84bbc"
     end
   end
 
