@@ -1,7 +1,7 @@
 class Onyx < Formula
   desc "Stable remote shell for unreliable networks (QUIC + SSH fallback)"
   homepage "https://useonyx.dev"
-  version "0.1.4"
+  version "0.1.5"
   license "MIT"
 
   # The tap currently ships only macOS Apple Silicon. Linux users should
@@ -10,7 +10,7 @@ class Onyx < Formula
   on_macos do
     on_arm do
       url "https://github.com/shervin9/onyx/releases/download/v#{version}/onyx-macos-arm64"
-      sha256 "fff6789c2b745ef83888fe952b0e3126a30a24e6eb09c8c24b08c1dea43c8180"
+      sha256 "2a31fb0f4c623a390f6f7e38be08f4273492f04730520fe24d71eafb9e21bc2d"
     end
   end
 
